@@ -94,3 +94,17 @@ This project focuses on **AI behavior control**, not model performance.
 
 > An AI system should not be judged by how well it answers,  
 > but by when it chooses not to answer.
+
+## How to Run
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/divyamshah-aiqa/when-should-ai-speak.git
+   cd when-should-ai-speak
+
+Install dependencies
+pip install -r requirements.txt
+
+Run the agent
+python run_agent.py
+
