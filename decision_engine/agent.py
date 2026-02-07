@@ -15,6 +15,17 @@ def should_ai_speak(user_query, context=None, confidence=0.0):
         attention_cost=attention_cost
     )
 
+
+    decision_log = {
+    "query": user_query,
+    "decision": decision,
+    "clarity_score": clarity,
+    "confidence_score": confidence,
+    "attention_cost": attention_cost,
+    "failure_reason": None if decision == "RESPOND" else reason
+}
+    print(decision_log)
+    
     return {
         "query": user_query,
         "signals": {
