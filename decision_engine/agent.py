@@ -2,7 +2,8 @@ from decision_engine.signals import (
     estimate_clarity,
     estimate_attention_cost
 )
-from decision_engine.decision import decide_action
+from .decision import decide_action
+
 
 
 def should_ai_speak(user_query, context=None, confidence=0.0):
