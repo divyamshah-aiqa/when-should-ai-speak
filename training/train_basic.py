@@ -56,10 +56,8 @@ def train():
         total = 0
 
         for texts, labels in dataloader:
-            # TODO: convert texts → token IDs (placeholder for now)
-            # For now, fake input: torch.randint(0, 1000, (len(labels), 10))
+            # For now, fake token IDs (we’ll fix later)
             inputs = torch.randint(0, 1000, (len(labels), 10))
-
             labels = torch.tensor(labels)
 
             # Forward pass
