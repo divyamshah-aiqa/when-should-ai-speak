@@ -40,14 +40,40 @@ class SimpleModel(nn.Module):
 
 
 def train():
-    # TODO: load dataset
-    # TODO: initialize model, loss, optimizer
-    # TODO: loop over epochs
-    #   - forward pass
-    #   - compute loss
-    #   - backward pass
-    #   - optimizer step
-    # TODO: print accuracy/loss per epoch
+    # Step 1: Load dataset
+    dataset = MyDataset("training/data.csv")
+    dataloader = DataLoader(dataset, batch_size=2, shuffle=True)
 
-if __name__ == "__main__":
-    train()
+    # Step 2: Initialize model, loss, optimizer
+    model = SimpleModel()
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+    # Step 3: Training loop
+    for epoch in range(5):  # 5 epochs
+        total_loss = 0
+        correct = 0
+        total = 0
+
+        for texts, labels in dataloader:
+            # TODO: convert texts → token IDs (placeholder for now)
+            # For now, fake input: torch.randint(0, 1000, (len(labels), 10))
+            inputs = torch.randint(0, 1000, (len(labels), 10))
+
+            labels = torch.tensor(labels)
+
+            # Forward pass
+            outputs = model(inputs)
+            loss = criterion(outputs, labels)
+
+            # Backward pass
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+
+            total_loss += loss.item()
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == labels).sum().item()
+            total += labels.size(0)
+
+        print(f"Epoch {epoch+1}, Loss: {total_loss:.4f}, Accuracy: {correct/total:.2f}")
