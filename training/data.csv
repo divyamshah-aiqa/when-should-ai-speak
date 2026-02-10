@@ -1,0 +1,5 @@
+text,label
+"Book a flight to Delhi",clear
+"What do you mean by that?",ambiguous
+"Show me the weather in Kolkata",clear
+"Can you explain?",ambiguous
